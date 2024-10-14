@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>langues</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link href="sytle1.css" rel="stylesheet">
+    <style>
+    header{
+  background-color:  rgba(0, 0, 0, 0.8);
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 100px;
+}
+.logo{
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+.navigation a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 30px;
+}
+
+.navigation a:hover{
+  color: #daa520;
+}
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">LSID<em class="e1"> recrutement</em></a>
+        <nav class="navigation">
+            <a href="acueil_condidat.php">offres d'emplois</a>
+            <a href="profil.php">Ajouter CV</a>
+            <a href="#foot">Contact</a>
+            <a href="cv.php">MON CV</a>
+            <a href="deconnexion_C.php">Deconnexion</a>
+        </nav>
+    </header>
+    <div class="h5">
+        <h5>
+            <marquee behavior="" direction="right"> remplir votre profil professionnelle et personelle 📝</marquee>
+        </h5>
+
+    </div>
+    <form method="post" action="formation.php" id="form">
+        <div id="for">
+            <h1>formation <span>&#x1F393</span></h1>
+
+            <table>
+                <tr>
+                    <td>
+                        <label>&nbsp; </label>
+                    </td>
+                    <td><input type="text" placeholder="[Type diplome]" name="type_diplome[0]" id="type_diplome[0]">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Diplôme : </label>
+                    </td>
+                    <td><input type="text" placeholder="[Spécialité]" name="specialite" id="specialite[0]">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>&nbsp; </label>
+                    </td>
+                    <td><input type="text" placeholder="[Groupe d'établiseement]" name="groupe_etablissement"
+                            id="groupe_etablissement[0]">
+                    <td><input type="text" placeholder="[établissement]" name="etablissement" id="etablissement[0]">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Année d'obtention : </label>
+                    </td>
+                    <td><input type="text" placeholder="[Année d'obtination]" name="annee_obtinnation"
+                            id="annee_obtinnation[0]"></td>
+                </tr>
+            </table>
+
+        </div>
+        <button type="submit" id="ajouter_for">Ajouter formation</button>
+        <br>
+        <br>
+        <button id="btn" name="suivant" id="suivant">suivant</button>
+    </form>
+
+
+
+    <script>
+
+
+        var i = 0;
+
+
+        $("#ajouter_for").click(function (event) {
+            i++
+            event.preventDefault();
+
+            $("#for").append('<hr><table id="table-' + i + '"><tr><td><label>&nbsp;</label></td><td><input type="text" placeholder="[Type diplome]" name="type_diplome[' + i + ']" id="type_diplome[' + i + ']"></td></tr><tr><td><label>Diplôme :</label></td><td><input type="text" placeholder="[Spécialité]" name="specialite[]" id="specialite[' + i + ']"></td></tr><tr><td><label>&nbsp;</label></td><td><input type="text" placeholder="[Groupe d\'établissement]" name="groupe_etablissement[]" id="groupe_etablissement[' + i + ']"></td><td><input type="text" placeholder="[établissement]" name="etablissement[]" id="etablissement[' + i + ']"></td></tr><tr><td><label>Année dobtinnation :</label></td><td><input type="text" placeholder="[Année d\'obtinnation]" name="annee_obtention[]" id="annee_obtinnation[' + i + ']"></td></tr></table></hr>');
+        });
+        $(document).on('submit', '#form', function (e) {
+
+            let type_diplomew = [];
+            let specialite = [];
+            let groupe_etablissement = [];
+            let etablissement = [];
+            let annee_obtention = [];
+            e.preventDefault();
+
+            event.preventDefault();
+
+            console.log("dhihdjd")
+
+            for (var j = 0; j <= i; j++) {
+
+                type_diplomew.push(document.getElementById("type_diplome[" + j + "]").value)
+                specialite.push(document.getElementById("specialite[" + j + "]").value)
+                groupe_etablissement.push(document.getElementById("groupe_etablissement[" + j + "]").value)
+                etablissement.push(document.getElementById("etablissement[" + j + "]").value)
+                annee_obtention.push(document.getElementById("annee_obtinnation[" + j + "]").value)
+
+            }
+            console.log(type_diplomew)
+
+            // Envoie les données à PHP via une requête AJAX
+            $.ajax({
+                url: 'formation.php',
+                type: 'POST',
+                data: {
+                    suivant: "true",
+                    type_diplome: type_diplomew,
+                    specialite: specialite,
+                    groupe_etablissement: groupe_etablissement,
+                    etablissement: etablissement,
+                    annee_obtention: annee_obtention
+                },
+                success: function (response) {
+                    console.log(response)
+                    // Traite la réponse de PHP si besoin
+                    window.location.href = "experience.html";
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        });
+
+// });
+
+
+
+    </script>
+</body>
+<br>
+
+<footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            <div class="col-md-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">LSIDrecrutement
+                </h5>
+                <p>avec nous vous trouverai le meilleure ofre</p>
+
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Secteurs
+                </h5>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration :none;">informatique</a>
+
+
+                    <a href="#" class="text-white" style="text-decoration :none;">mécanique</a>
+                    <a href="#" class="text-white" style="text-decoration :none;">électronique</a>
+                    <a href="#" class="text-white" style="text-decoration :none;">réseau</a>
+                </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Contact</h5>
+                <p>
+                    <i class="fas fa-home mr-3"></i>Settat ,Casablanca-Settat ,Maroc
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-3"></i>LSIDrecrutement2023@gmail.com
+                </p>
+                <p>
+                    <i class="fas fa-phone mr-3"></i>+212 6123456988
+                </p>
+                <p>
+                    <i class="fas fa-phone mr-3"></i>+212 5123456789
+                </p>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <div class="row alig-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p>les droits de copies @2023 est réserver par :
+                    <a href="#" style="text-decoration: none;">
+                        <strong class="text-warning">Provideur</strong>
+                    </a>
+
+                </p>
+
+
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-google-plus"></i></a>
+
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-youtube"></i></a>
+                        </li>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

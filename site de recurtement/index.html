@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" >
+    <style>
+      .main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(images/BACK1.jpeg.jpg) no-repeat;
+    background-size:cover;
+    background-position: center center;
+    background-attachment: fixed;}
+
+  
+  .main h2{
+    color:black;
+    font-size: 30px;
+    font-weight: 900;
+  }
+  
+  .main h2 span{
+    display: inline-block;
+    font-family:Lato;
+    margin-top: 10px;
+    color: rgb(34, 34, 177);
+    font-size: 3em;
+    font-weight: 600;
+  }
+  .main-bin{
+    color: black;
+    background-color: blue;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.187em;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+  }
+  
+  .main-bin:hover{
+    background-color:rgb(252, 220, 220);
+    transform: scale(1.1,1.1);
+  }
+  
+  .social-icons a{
+    color: blue;
+    font-size: 4em;
+    padding-right: 100px;
+  }
+  
+  .title{
+    display: flex;
+    justify-content: center;
+    color: blue;
+    font-size: 2.2em;
+    font-weight: 800;
+    padding-top: 100px;
+  }
+  
+  .content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 530px;
+  }
+.cards{
+  background: url(images/BACK2.jpeg.jpg) no-repeat;
+  background-size: cover;
+  
+}
+  .card{
+    background-color: #fff;
+    width: 15em;
+    box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+    padding: 25px;
+    margin: 15px;
+   height: 270PX;
+   border-radius: 10px;
+   margin-top: 50px;
+  }
+  
+  .card:hover{
+    transform: scale(1.1);
+    transition: 0.7s ease;
+  }
+  
+  .icon{
+    color: blue;
+    font-size: 8em;
+    text-align: center;
+  }
+  
+  .info{
+    text-align: center;
+  }
+  
+  .info h3{
+    color: blue;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 10px;
+  }
+  a{
+    text-decoration: none;
+  }
+    </style>
+    </head>
+  <body>
+<section class="main">
+  <div>
+      <h2>Bienvenu dans notre site<br><span>LSID RECRUTEMENT</span></h2> 
+     
+      <a href="#Services"  class="main-bin">Commencer maintenant</a>
+      </div>
+</section>
+
+<section class="cards" id="Services">
+  <h2 class="title">Vous etes</h2>
+  <div class="content">
+      <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="info">
+            <a class="a1 " href="connecter_C.php">
+              <h3 style="color: black;">Candidat</h3>
+              <p style="color: black;">Notre equipe d'experts en analyse de donnees peut vous aider a prendre des decisions plus aclairees pour votre carriere</p>
+          </div>
+      </div>
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div class="info">
+            <a class="a1" href="connecter_R.php">
+              <h3 style="color: black;">Recruteur</h3>
+              <p style="color: black;">Nous pouvons vous aider a trouver les meilleurs candidats pour vos besoins de recrutement.</p>
+          </div>
+      </div>
+  </div>
+</section>
+</body>
+</html>

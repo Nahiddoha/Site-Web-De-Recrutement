@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>langues</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link href="sytle1.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+                header{
+  background-color:  rgba(0, 0, 0, 0.8);
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 100px;
+}
+.logo{
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+.navigation a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 30px;
+}
+
+.navigation a:hover{
+  color: #daa520;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">LSID<em class="e1"> recrutement</em></a>
+        <nav class="navigation">
+            <a href="acueil_condidat.php">offres d'emplois</a>
+            <a href="profil.php">Ajouter CV</a>
+            <a href="#foot">Contact</a>
+            <a href="cv.php">MON CV</a>
+            <a href="deconnexion_C.php">Deconnexion</a>
+        </nav>
+    </header>
+    <form method="post" action="langue.php" id="form">
+        <h1>Langues &#x1F6E0;</h1>
+                                            
+                                               
+                                                <div  id="conteneur_langue">
+                                                    <label>&nbsp;  </label> 
+                                                 
+                                                      <p class="input select"><label class="comp1">Langue :      </label> 
+                                                      <input type="text" class="comp" placeholder="[saisir votre langue]" id="langue[0]">
+                                                      <input type="text" class="comp" placeholder="[saisir votre niveau ]" id="niveau_langue[0]">
+                                                       
+                                                   
+                               
+                                    </p>  </div>
+                                    <button type="submit" id="ajouter_langue">Ajouter une langue</button>
+                                    <br>
+<br>
+<button id="btn" name="suivant">suivant</button>
+    </form>
+    <script> var i=0;
+     let langue=[];                                                                        
+                        let niveau_langue=[];
+         $("#ajouter_langue").click(function(event){i++;
+            event.preventDefault();
+                                                                            $("#conteneur_langue").append('<hr>          <p class="input select" id=><label class="comp1">Langue :  </label> <input type="text" class="comp" placeholder="[saisir votre langue]" id="langue['+i+']"><input type="text" class="comp" placeholder="[saisir votre niveau]" id="niveau_langue['+i+']"></p></hr> ')
+                                                                        });
+                                                                        $(document).on('submit','#form',function(e){
+                                                                           
+    
+                       
+                                                                         e.preventDefault();
+ event.preventDefault();
+
+    for(var j=0;j<=i;j++){
+   langue.push(document.getElementById("langue["+j+"]").value)
+  niveau_langue.push(document.getElementById("niveau_langue["+j+"]").value)
+    }
+    e.preventDefault();
+     $.ajax({
+        url: 'langue.php',
+        type: 'POST',
+        data: {
+            suivant:"true",
+          langue:langue,
+           niveau_langue:niveau_langue
+           
+           
+        },
+        success: function(response) {
+            console.log(response)
+            // Traite la réponse de PHP si besoin
+        window.location.href = "bureautique.html";
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
+});
+
+    </script>
+</body>
+<br>
+<br>
+<br>
+<footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left"> 
+        <div class="row text-center text-md-left">
+            <div class="col-md-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-warning">LSIDrecrutement
+            </h5>
+            <p>avec nous vous trouverai le meilleure ofre</p>
+            
+        </div>
+<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+    <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Secteurs
+    </h5>
+    <p>
+        <a href="#" class="text-white" style="text-decoration :none;">informatique</a>
+   
+
+    <a href="#" class="text-white" style="text-decoration :none;">mécanique</a>
+    <a href="#" class="text-white" style="text-decoration :none;">électronique</a>
+    <a href="#" class="text-white" style="text-decoration :none;">réseau</a>
+</p>
+</div>
+<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+    <h5 class="text-uppercase mb-4 font-weight-bold text-warning" > Contact</h5>
+    <p>
+        <i class="fas fa-home mr-3"></i>Settat ,Casablanca-Settat ,Maroc
+    </p>
+    <p>
+        <i class="fas fa-envelope mr-3"></i>LSIDrecrutement2023@gmail.com
+    </p>
+    <p>
+        <i class="fas fa-phone mr-3"></i>+212 6123456988
+    </p>
+    <p>
+        <i class="fas fa-phone mr-3"></i>+212 5123456789
+    </p>
+</div>
+    </div>
+    <hr class="mb-4">
+    <div class="row alig-items-center">
+        <div class="col-md-7 col-lg-8"> 
+            <p>les droits de copies @2023 est réserver par :
+                <a href="#" style="text-decoration: none;">
+                    <strong class="text-warning">Provideur</strong>
+                </a>
+
+            </p>
+
+
+        </div>
+        <div class="col-md-5 col-lg-4">
+            <div class="text-center text-md-right">
+                <ul class="list-unstyled list-inline">
+                    <li class="list-inline-item">
+                   <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-twitter"></i></a>
+                         </li>
+                         <li class="list-inline-item">
+                            <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-google-plus"></i></a>
+
+                             </li>
+                             <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-linkedin-in"></i></a>
+                                 </li>
+                                 <li class="list-inline-item">
+                                    <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-youtube"></i></a>
+                                     </li>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</footer>
+
+</html>
